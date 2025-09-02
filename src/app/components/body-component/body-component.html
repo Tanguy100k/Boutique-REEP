@@ -1,0 +1,82 @@
+<div class="beat-box">
+    <div class="beat-cover">
+        <button class="material-symbols-outlined" (click)="toogleAudio(player1)">{{ player1?.isPlaying ? 'pause_circle'
+            : 'play_circle'}}</button>
+        <img src="https://i.pinimg.com/1200x/ad/93/d0/ad93d06036af4585897261d753846046.jpg" alt="Exemple">
+    </div>
+    <div class="beat-presentation">
+        <div class="beat-title">
+            <h1>Fast Car</h1>
+            <hr class="vertical-separator">
+            <h2>Trap x RnB x Drill</h2>
+        </div>
+        <div class="beat-action">
+            <app-tooltip-component text="Like">
+                <button class="material-symbols-outlined">favorite</button>
+            </app-tooltip-component>
+            <app-tooltip-component text="Share">
+                <button class="material-symbols-outlined">share</button>
+            </app-tooltip-component>
+        </div>
+    </div>
+    <div class="main-separator"></div>
+    <div class="box-beat-info">
+        <h3>INFORMATION</h3>
+        <div class="info">
+            <div class="beat-info-cat">
+                <span>BPM</span>
+                <span>Key</span>
+                <span>Plays</span>
+                <span>Tags</span>
+                <span>Published</span>
+            </div>
+            <div class="beat-info-data">
+                <span>40</span>
+                <span>Fm</span>
+                <span>1320</span>
+                <span>Rap</span>
+                <span>Sep 2, 2025</span>
+            </div>
+        </div>
+    </div>
+    <div class="progress-bar" [class.playing]="player1?.audioPlayer?.nativeElement == audioPlayerService.currentAudio">
+        <app-audio-player-component #player1 [src]="audioSrc"></app-audio-player-component>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="beat-box">
+    <div class="beat-cover">
+        <button class="material-symbols-outlined" (click)="toogleAudio(player2)">{{ player2?.isPlaying ? 'pause_circle'
+            : 'play_circle'}}</button>
+        <img src="https://i.pinimg.com/1200x/aa/8e/a3/aa8ea3536ae76bc9a3e13e5d0d1c802e.jpg" alt="Exemple">
+    </div>
+    <div class="beat-presentation">
+        <div class="beat-title">
+            <h1>Slow Car</h1>
+            <hr class="vertical-separator">
+            <h2>Afro x Electro</h2>
+        </div>
+        <div class="beat-action">
+            <app-tooltip-component text="Like">
+                <button class="material-symbols-outlined">favorite</button>
+            </app-tooltip-component>
+            <app-tooltip-component text="Share">
+                <button class="material-symbols-outlined">share</button>
+            </app-tooltip-component>
+        </div>
+    </div>
+    <div class="progress-bar" [class.playing]="player2?.audioPlayer?.nativeElement == audioPlayerService.currentAudio">
+        <app-audio-player-component #player2 [src]="audioSrc2"></app-audio-player-component>
+    </div>
+
+</div>

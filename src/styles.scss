@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Russo One', sans-serif;
+  min-height: 200vh;
+  background-image: url("../public/background-style-2.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+input, button, textarea, select {
+  font-family: inherit;
+}

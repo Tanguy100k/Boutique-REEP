@@ -1,0 +1,172 @@
+.beat-box {
+    margin: 20px;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #ff000029;
+    backdrop-filter : blur(50px);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.beat-cover {
+    position: relative;
+    width: 125px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.beat-cover button {
+    position: absolute;
+    z-index: 10;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.beat-cover:hover button {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.beat-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.beat-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-grow: 1;
+    margin: 10px;
+}
+
+.beat-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.beat-title h1{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.beat-title h2{
+    margin: 0;
+    font-size: 1rem;
+    color: #bbbbbb;
+}
+
+.vertical-separator {
+    width: 1px;
+    height: 20px;
+    background-color: hsla(0, 0%, 100%, 0.5);
+    border: none;
+}
+
+.beat-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.beat-action button {
+    position: relative;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.beat-action button:hover {
+    background-color: rgba(100, 100, 100, 0.3);
+}
+
+.main-separator {
+    width: 1px;
+    background-color: hsla(0, 0%, 100%, 0.5);
+    box-shadow: none;
+}
+
+.box-beat-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90%;
+    min-width: 300px;
+    width: 30%;
+    color: #ffffffaa;
+}
+
+.box-beat-info h3{
+    font-size: 0.6rem;
+    margin: 15px 25px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.info span {
+    font-size: 0.7rem;
+    margin: 2px 25px;
+}
+
+.beat-info-cat, .beat-info-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.beat-info-cat{
+    align-items: flex-start;
+}
+
+.beat-info-data{
+    align-items: flex-end;
+    font-weight: bold;
+}
+
+.progress-bar {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+
+}
+
+.progress-bar.playing{
+    opacity: 1;
+    pointer-events: all;
+}

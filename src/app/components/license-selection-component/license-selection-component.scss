@@ -1,5 +1,4 @@
 .license-selection-box {
-    min-height: 500px;
     margin: 20px;
     padding: 20px;
     color: #ffffff;
@@ -14,24 +13,103 @@ h1{
     font-size: 1.25rem;
 }
 
+h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
 .license-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    padding-block: 20px;
 }
 
-.license1 {
-    grid-column: 1;
-    grid-row: 1;
-    background-color: white;
+.license {
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
     display: flex;
-    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffffaa;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+
+    &.selected {
+        background-color: #ffffff20;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        color: #ffffffff;
+    }
+
+    &:hover {
+        background-color: #ffffff20;
+        cursor: pointer;
+        color: #ffffffff;
+    }
 }
 
-.license2 {
-    grid-column: 2;
-    grid-row: 1;
-    background-color: white;
+.license-item {
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.license-files {
+    color: #ffffffaa;
+    font-size: 0.75rem;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.buy-button, .add-to-cart-button {
+    background-color: transparent;
+    border: solid #ffffff20 1px;
+    border-radius: 5px;
+    color: #ffffffaa;
+    padding: 8px 16px;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        border-color: transparent;
+        background-color: #ffffff20;
+        color: #ffffffff;
+        cursor: pointer;
+    }
+}
+
+.arrow {
+    margin-right: auto;
+    margin-top: auto;
+    color: #ffffffff;
+    border: none;
+    background-color: #ffffff00;
+}
+
+.arrow span {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+
+  &:hover {
+        cursor: pointer;
+    }
+}
+
+.arrow.flip span {
+    transform: rotateZ(180deg);
 }

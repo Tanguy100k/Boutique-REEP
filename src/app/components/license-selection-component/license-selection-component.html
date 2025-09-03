@@ -1,8 +1,28 @@
 <div class="license-selection-box">
-    <h1>Licensing</h1>
-    <div class="license-box">
-        <div class="license1">q</div>
-        <div class="license2">q</div>
 
+    <h1>Licensing</h1>
+
+    <div class="license-box">
+        @for (license of licenses; track license.name) {
+        <div class="license" [class.selected]="selectedLicense === license" (click)="onLicenseSelect(license)">
+            <div class="license-item">
+                <h2>{{ license.name }}</h2>
+                <div class="license-files">{{ getFilesString(license.files) }}</div>
+            </div>
+            <div class="license-price">{{ license.price }}€</div>
+        </div>
+        }
+    </div>
+
+    <div class="footer">
+        <button class="arrow">
+            <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        </button>
+        <button class="add-to-cart-button">
+            <h2>Add to cart</h2>
+        </button>
+        <button class="buy-button">
+            <h2>Buy now</h2>
+        </button>
     </div>
 </div>

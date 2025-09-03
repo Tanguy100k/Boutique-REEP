@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="progress-bar" [class.playing]="player1?.audioPlayer?.nativeElement == audioPlayerService.currentAudio">
+    <div class="progress-bar" [class.playing]="(player1?.audioPlayer?.nativeElement ?? false) == audioPlayerService.currentAudio">
         <app-audio-player-component #player1 [src]="audioSrc"></app-audio-player-component>
     </div>
 </div>

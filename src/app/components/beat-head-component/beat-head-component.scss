@@ -1,6 +1,6 @@
 .beat-box {
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     color: #ffffff;
     background-color: #ff000029;
     backdrop-filter : blur(50px);
@@ -19,7 +19,6 @@
     align-items: center;
     overflow: hidden;
     border: none;
-    margin: 10px;
     border-radius: 5px;
 }
 
@@ -53,7 +52,7 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-grow: 1;
-    margin: 10px;
+    padding-inline-start: 20px;
 }
 
 .beat-title {
@@ -68,18 +67,19 @@
     font-size: 1.5rem;
 }
 
-.beat-title h2{
-    margin: 0;
-    font-size: 1rem;
-    color: #bbbbbb;
-}
-
 .vertical-separator {
     width: 1px;
     height: 20px;
-    background-color: hsla(0, 0%, 100%, 0.5);
+    background-color: #ffffffaa;
     border: none;
 }
+
+.beat-title h2{
+    margin: 0;
+    font-size: 1rem;
+    color: #ffffffaa;
+}
+
 
 .beat-action {
     display: flex;
@@ -103,7 +103,7 @@
 }
 
 .beat-action button:hover {
-    background-color: rgba(100, 100, 100, 0.3);
+    background-color: #ffffff20;
 }
 
 .main-separator {
@@ -115,8 +115,9 @@
 .box-beat-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: 90%;
+    justify-content: space-between;
+    padding-inline-start: 20px;
+    padding-block: 10px;
     min-width: 300px;
     width: 30%;
     color: #ffffffaa;
@@ -124,7 +125,7 @@
 
 .box-beat-info h3{
     font-size: 0.6rem;
-    margin: 15px 25px;
+    margin: 0;
 }
 
 .info {
@@ -135,13 +136,14 @@
 
 .info span {
     font-size: 0.7rem;
-    margin: 2px 25px;
+    margin-block: 0px;
 }
 
 .beat-info-cat, .beat-info-data {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    gap: 2px;
 }
 
 .beat-info-cat{

@@ -1,5 +1,4 @@
 .beat-box {
-    margin: 20px;
     padding: 20px;
     color: #ffffff;
     background-color: #ff000029;
@@ -12,8 +11,8 @@
 
 .beat-cover {
     position: relative;
-    width: 125px;
-    height: 125px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +108,7 @@
 .box-beat-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #ffffff10;
     border-radius: 5px;
     padding-inline: 20px;

@@ -106,17 +106,13 @@
     background-color: #ffffff20;
 }
 
-.main-separator {
-    width: 1px;
-    background-color: #ffffffaa;
-    box-shadow: none;
-}
-
 .box-beat-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-inline-start: 20px;
+    background-color: #ffffff10;
+    border-radius: 5px;
+    padding-inline: 20px;
     padding-block: 10px;
     min-width: 300px;
     width: 30%;

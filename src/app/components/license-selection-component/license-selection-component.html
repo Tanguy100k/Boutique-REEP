@@ -13,11 +13,13 @@
         </div>
         }
     </div>
-
+    <app-license-info-panel-component></app-license-info-panel-component>
+    
     <div class="footer">
-        <button class="arrow">
+        <button class="arrow" [class.flip]="isOpen" (click)="togglePanel()">
             <span class="material-symbols-outlined">keyboard_arrow_down</span>
         </button>
+        
         <button class="add-to-cart-button">
             <h2>Add to cart</h2>
         </button>
@@ -26,3 +28,4 @@
         </button>
     </div>
 </div>
+

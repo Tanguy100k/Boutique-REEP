@@ -1,5 +1,6 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { LicenseInfoPanelService } from '../../services/license-info-panel-service';
+import { LicenseInfoPanelComponent } from '../license-info-panel-component/license-info-panel-component';
 
 type FilesCategory = 'MP3' | 'WAV' | 'STEMS';
 
@@ -12,19 +13,13 @@ interface License {
 
 @Component({
   selector: 'app-license-selection-component',
-  imports: [],
+  imports: [
+    LicenseInfoPanelComponent
+],
   templateUrl: './license-selection-component.html',
   styleUrl: './license-selection-component.scss'
 })
 export class LicenseSelectionComponent {
-
-  ngAfterViewInit(): void {
-    const btn = document.querySelector('button.arrow');
-
-    btn!.addEventListener('click', () => {
-    btn!.classList.toggle('flip'); // ajoute/enlève la classe à chaque clic
-});
-  }
 
   licenses: License[] = [
     {
@@ -51,19 +46,26 @@ export class LicenseSelectionComponent {
       name: 'Exclusive',
       price: 999.99,
       files: ['MP3', 'WAV', 'STEMS']
-    },
+    }
   ];
 
   selectedLicense: License = this.licenses[0];
-  isDeployed: boolean = false;
+  isOpen: boolean = false;
 
+  constructor(private licenseInfoPanelService: LicenseInfoPanelService) {
+    this.licenseInfoPanelService.isOpen$.subscribe(isOpen => {this.isOpen = isOpen});
+  }
 
   getFilesString(files: FilesCategory[]): string {
     return files.join(' | ');
-  }
+  };
 
   onLicenseSelect(license: License) {
     this.selectedLicense = license;
     console.log(this.selectedLicense)
-  }
+  };
+
+  togglePanel() {
+    this.licenseInfoPanelService.toogle();
+  };
 }

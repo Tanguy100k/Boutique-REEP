@@ -2,15 +2,16 @@
 
     <div class="beat-box">
         <div class="beat-cover">
-            <button class="material-symbols-outlined" (click)="toogleAudio(player1)">{{ player1?.isPlaying ? 'pause_circle'
-            : 'play_circle'}}</button>
-        <img src="https://i.pinimg.com/1200x/ad/93/d0/ad93d06036af4585897261d753846046.jpg" alt="Exemple">
+            <button class="material-symbols-outlined" (click)="audioPlayerService.toggleSound(currentBeat.audioUrl, currentBeat.id)">
+                {{ audioPlayerService.currentAudioId === currentBeat.id && audioPlayerService._isPlaying.value ? 'pause_circle' : 'play_circle'}}
+            </button>
+        <img [src]='currentBeat.imgUrl' alt="Exemple">
     </div>
     <div class="beat-presentation">
         <div class="beat-title">
-            <h1>Fast Car</h1>
+            <h1>{{ currentBeat.name }}</h1>
             <hr class="vertical-separator">
-            <h2>Trap x RnB x Drill</h2>
+            <h2>{{ currentBeat.description }}</h2>
         </div>
         <div class="beat-action">
             <app-tooltip-component text="Like">
@@ -32,17 +33,17 @@
                 <span>Published</span>
             </div>
             <div class="beat-info-data">
-                <span>40</span>
-                <span>Fm</span>
+                <span>{{ currentBeat.bpm }}</span>
+                <span>{{ currentBeat.key }}</span>
                 <span>1320</span>
                 <span>Rap</span>
-                <span>Sep 2, 2025</span>
+                <span>{{ currentBeat.date }}</span>
             </div>
         </div>
     </div>
-    <div class="progress-bar" [class.playing]="(player1?.audioPlayer?.nativeElement ?? false) == audioPlayerService.currentAudio">
-        <app-audio-player-component #player1 [src]="audioSrc"></app-audio-player-component>
-    </div>
+    @if (audioPlayerService.currentAudioId === currentBeat.id) {
+        <app-audio-progress-bar-component></app-audio-progress-bar-component>
+    }
 </div>
 
 <!-- <div class="beat-box">

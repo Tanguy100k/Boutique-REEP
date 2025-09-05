@@ -150,15 +150,16 @@
     font-weight: bold;
 }
 
-.progress-bar {
-    opacity: 0;
+app-audio-progress-bar-component {
+    
+    opacity: 1;
+    pointer-events: all;
     padding: 0;
     margin: 0;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    pointer-events: none;
     transition: opacity 0.5s ease;
 
 }

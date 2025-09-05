@@ -1,7 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren, viewChildren } from '@angular/core';
-import { TooltipComponent } from '../tooltip-component/tooltip-component';
-import { AudioPlayerService } from '../../services/audio-player-service';
-import { AudioPlayerComponent } from '../audio-player-component/audio-player-component';
+import { Component } from '@angular/core';
 import { BeatHeadComponent } from '../beat-head-component/beat-head-component';
 import { LicenseSelectionComponent } from "../license-selection-component/license-selection-component";
 

@@ -1,9 +1,0 @@
-<div class="audio-player">
-    <audio #audioPlayer> 
-        <source [src]="src" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
-
-    <input #audioBar type="range" min="0" [max]="duration" [(ngModel)]="currentTime" step="any" (input)="seek()" (mousedown)="onSeekPause()" (mouseup)="onSeekPlay()">
-
-</div>

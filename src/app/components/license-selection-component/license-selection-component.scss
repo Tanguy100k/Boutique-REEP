@@ -5,7 +5,6 @@
     backdrop-filter : blur(50px);
     border: none;
     border-radius: 5px;
-    transition: border-radius 1s ease;
 }
 
 h1{
@@ -68,6 +67,11 @@ p {
     gap: 5px;
 }
 
+.license-price {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 .footer {
     display: flex;
     justify-content: flex-end;
@@ -75,16 +79,15 @@ p {
 }
 
 .buy-button, .add-to-cart-button {
-    background-color: transparent;
-    border: solid #ffffff20 1px;
+    background-color: #ffffff20;
+    border: solid #ffffff00 1px;
     border-radius: 5px;
-    color: #ffffffaa;
+    color: #ffffffbb;
     padding: 8px 16px;
     transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 
     &:hover {
-        border-color: transparent;
-        background-color: #ffffff20;
+        background-color: #ffffff30;
         color: #ffffffff;
         cursor: pointer;
     }

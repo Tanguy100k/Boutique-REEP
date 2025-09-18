@@ -1,0 +1,24 @@
+import express from 'express';
+import cors from 'cors';
+import Stripe from "stripe";
+import createCheckoutSession from './router/create-checkout-session.ts'
+import verifyPayment from './router/verify-payment.ts'
+
+const app = express();
+const port = 3000;
+const stripe = new Stripe('***REMOVED***');
+
+app.use(cors({ origin: "http://localhost:4200" }));
+app.use(express.json());
+
+app.get('/api/test', (req, res) => {
+  console.log('Le serveur a été contacté !');
+  res.status(200).send("API is running")
+});
+
+app.use('/stripe', createCheckoutSession(stripe));
+app.use('/stripe', verifyPayment(stripe));
+
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});

@@ -1,0 +1,51 @@
+.beat-recommendations-box {
+    padding: 20px;
+    color: #ffffff;
+    background-color: #ff000029;
+    backdrop-filter : blur(50px);
+    border: none;
+    border-radius: 5px;
+    transition: border-radius 1s ease;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    overflow-x: hidden;
+}
+
+.beat-recommendation-box {
+    flex: 0 0 auto;
+    width: calc((100% - 60px) / 4);
+    
+
+}
+
+.beat-recommendation-box button {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #ffffff20;
+    border: none;
+    border-radius: 5px;
+    color: #ffffffbb;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        background-color: #ffffff30;
+        color: #ffffffff;
+        cursor: pointer;
+    }
+
+    & .material-symbols-outlined {
+        font-size: 1rem;
+    }
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

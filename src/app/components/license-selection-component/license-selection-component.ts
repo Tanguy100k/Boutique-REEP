@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LicenseInfoPanelService } from '../../services/license-info-panel-service';
 import { LicenseInfoPanelComponent } from '../license-info-panel-component/license-info-panel-component';
+import { ApiService } from '../../services/api-service';
 
 type FilesCategory = 'MP3' | 'WAV' | 'STEMS';
 
@@ -52,7 +53,7 @@ export class LicenseSelectionComponent {
   selectedLicense: License = this.licenses[0];
   isOpen: boolean = false;
 
-  constructor(private licenseInfoPanelService: LicenseInfoPanelService) {
+  constructor(private licenseInfoPanelService: LicenseInfoPanelService, private api: ApiService) {
     this.licenseInfoPanelService.isOpen$.subscribe(isOpen => {this.isOpen = isOpen});
   }
 
@@ -62,10 +63,25 @@ export class LicenseSelectionComponent {
 
   onLicenseSelect(license: License) {
     this.selectedLicense = license;
-    console.log(this.selectedLicense)
   };
 
   togglePanel() {
     this.licenseInfoPanelService.toogle();
   };
+
+  async onClick() {
+  try {
+    const res = await fetch("http://localhost:3000/stripe/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json" // toujours mettre ce header
+      },
+      body: JSON.stringify({ beatName: 'Beat', license: this.selectedLicense.name, price: this.selectedLicense.price * 100 })
+    });
+    const data = await res.json();
+    window.location.href = data.url; // redirection vers Stripe Checkout
+  } catch (err) {
+    console.error("Erreur lors de la création de la session:", err);
+  }
+}
 }

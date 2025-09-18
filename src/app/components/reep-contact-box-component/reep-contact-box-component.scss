@@ -1,0 +1,116 @@
+.contact-box {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    color: #ffffff;
+    background-color: #ff000029;
+    backdrop-filter: blur(50px);
+    border: none;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.profile {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    .img-border {
+        box-sizing: border-box;
+        height: 75%;
+        aspect-ratio: 1 / 1;
+        border: 2px solid #00000020;
+        border-radius: 50%;
+        padding: 0px;
+        display: flex;
+        transition: border-color 0.3s ease;
+        overflow: hidden;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    & img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        transition: all 1s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    & .text {
+        display: flex;
+        align-items: baseline;
+        flex-direction: column;
+    }
+}
+
+
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.25rem, 2vw, 3rem);
+    color: #ffffff;
+}
+
+.country {
+    margin: 0;
+    font-size: clamp(0.5rem, 1vw, 0.9rem);
+    color: #ffffff90;
+}
+
+.vertical-separator {
+    width: 1px;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffffaa;
+    border: none;
+}
+
+.socials-links {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    & > * {
+        height: 50%;
+        aspect-ratio: 1 / 1;
+        background-color: #ffffff2f;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .instagram img {
+        aspect-ratio: 1 / 1;
+        width: 50%;
+        object-fit: cover;
+    }
+
+    .youtube img {
+        aspect-ratio: 1 / 1;
+        width: 70%;
+        object-fit: cover;
+    }
+}

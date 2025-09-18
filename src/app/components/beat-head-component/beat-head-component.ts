@@ -3,13 +3,15 @@ import { TooltipComponent } from '../tooltip-component/tooltip-component';
 import { AudioPlayerService } from '../../services/audio-player-service';
 import { AudioProgressBarComponent } from '../audio-progress-bar-component/audio-progress-bar-component';
 import { BeatInterface } from '../../interfaces/beat-interface';
+import { BeatBoxComponent } from "../beat-box-component/beat-box-component";
 
 @Component({
   selector: 'app-beat-head-component',
   imports: [
     TooltipComponent,
-    AudioProgressBarComponent
-  ],
+    AudioProgressBarComponent,
+    BeatBoxComponent
+],
   templateUrl: './beat-head-component.html',
   styleUrl: './beat-head-component.scss'
 })
@@ -25,7 +27,7 @@ export class BeatHeadComponent {
     bpm: '140',
     date: 'Sep 2, 2025'
   };
-  
+
   audioSrc = 'Sample.wav'
   audioSrc2 = 'Sample2.wav'
 

@@ -1,62 +1,12 @@
 <div class="body">
 
     <div class="beat-box">
-        <div class="beat-cover">
-            <button class="material-symbols-outlined" (click)="audioPlayerService.toggleSound(currentBeat.audioUrl, currentBeat.id)">
-                {{ audioPlayerService.currentAudioId === currentBeat.id && audioPlayerService._isPlaying.value ? 'pause_circle' : 'play_circle'}}
-            </button>
-        <img [src]='currentBeat.imgUrl' alt="Exemple">
-    </div>
-    <div class="beat-presentation">
-        <div class="beat-title">
-            <h1>{{ currentBeat.name }}</h1>
-            <hr class="vertical-separator">
-            <h2>{{ currentBeat.description }}</h2>
-        </div>
-        <div class="beat-action">
-            <app-tooltip-component text="Like">
-                <button class="material-symbols-outlined">favorite</button>
-            </app-tooltip-component>
-            <app-tooltip-component text="Share">
-                <button class="material-symbols-outlined">share</button>
-            </app-tooltip-component>
-        </div>
-    </div>
-    <div class="box-beat-info">
-        <h3>INFORMATION</h3>
-        <div class="info">
-            <div class="beat-info-cat">
-                <span>BPM</span>
-                <span>Key</span>
-                <span>Plays</span>
-                <span>Tags</span>
-                <span>Published</span>
-            </div>
-            <div class="beat-info-data">
-                <span>{{ currentBeat.bpm }}</span>
-                <span>{{ currentBeat.key }}</span>
-                <span>1320</span>
-                <span>Rap</span>
-                <span>{{ currentBeat.date }}</span>
-            </div>
-        </div>
-    </div>
-    @if (audioPlayerService.currentAudioId === currentBeat.id) {
-        <app-audio-progress-bar-component></app-audio-progress-bar-component>
-    }
-</div>
-
-<!-- <div class="beat-box">
-    <div class="beat-cover">
-        <button class="material-symbols-outlined" (click)="toogleAudio(player2)">{{ player2?.isPlaying ? 'pause_circle'
-            : 'play_circle'}}</button>
-            <img src="https://i.pinimg.com/1200x/aa/8e/a3/aa8ea3536ae76bc9a3e13e5d0d1c802e.jpg" alt="Exemple">
-        </div>
+        <app-beat-box-component [beat]="currentBeat"></app-beat-box-component>
         <div class="beat-presentation">
             <div class="beat-title">
-                <h1>Slow Car</h1>
+                <h1>{{ currentBeat.name }}</h1>
                 <hr class="vertical-separator">
-                <h2>Afro x Electro</h2>
+                <h2>{{ currentBeat.description }}</h2>
             </div>
             <div class="beat-action">
                 <app-tooltip-component text="Like">
@@ -67,9 +17,27 @@
                 </app-tooltip-component>
             </div>
         </div>
-        <div class="progress-bar" [class.playing]="player2?.audioPlayer?.nativeElement == audioPlayerService.currentAudio">
-            <app-audio-player-component #player2 [src]="audioSrc2"></app-audio-player-component>
+        <div class="box-beat-info">
+            <h3>INFORMATION</h3>
+            <div class="info">
+                <div class="beat-info-cat">
+                    <span>BPM</span>
+                    <span>Key</span>
+                    <span>Plays</span>
+                    <span>Tags</span>
+                    <span>Published</span>
+                </div>
+                <div class="beat-info-data">
+                    <span>{{ currentBeat.bpm }}</span>
+                    <span>{{ currentBeat.key }}</span>
+                    <span>1320</span>
+                    <span>Rap</span>
+                    <span>{{ currentBeat.date }}</span>
+                </div>
+            </div>
         </div>
-        
-    </div> -->
+        @if (audioPlayerService.currentAudioId === currentBeat.id) {
+        <app-audio-progress-bar-component></app-audio-progress-bar-component>
+        }
+    </div>
 </div>

@@ -7,9 +7,23 @@
     margin-block: 20px;
     gap: 20px;
 
-    & * {
+    & > * {
         width: 100%;
         min-width: 850px;
-        max-width: 1500px;
+        max-width: 1300px;
+    }
+}
+
+.row {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+
+    & .recommendations-box {
+        width: calc(60% - 10px);
+    }
+
+    & .reep-contact {
+        width: calc(40% - 10px);
     }
 }

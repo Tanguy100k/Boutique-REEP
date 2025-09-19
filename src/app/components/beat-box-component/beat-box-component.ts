@@ -10,7 +10,7 @@ import { AudioPlayerService } from '../../services/audio-player-service';
 })
 export class BeatBoxComponent {
 
-  @Input() beat!: BeatInterface;
+  @Input() beat: BeatInterface | null = null;
 
   constructor(public audioPlayerService: AudioPlayerService) {}
 }

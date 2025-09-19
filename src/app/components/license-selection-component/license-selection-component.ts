@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { LicenseInfoPanelService } from '../../services/license-info-panel-service';
 import { LicenseInfoPanelComponent } from '../license-info-panel-component/license-info-panel-component';
 import { ApiService } from '../../services/api-service';
+import { UrlBeatIdService } from '../../services/url-beat-id-service';
+import { BeatInterface } from '../../interfaces/beat-interface';
 
 type FilesCategory = 'MP3' | 'WAV' | 'STEMS';
 
@@ -53,8 +55,11 @@ export class LicenseSelectionComponent {
   selectedLicense: License = this.licenses[0];
   isOpen: boolean = false;
 
-  constructor(private licenseInfoPanelService: LicenseInfoPanelService, private api: ApiService) {
+  currentBeat: BeatInterface | null = null;
+
+  constructor(private licenseInfoPanelService: LicenseInfoPanelService, private api: ApiService, private urlBeatIdService: UrlBeatIdService) {
     this.licenseInfoPanelService.isOpen$.subscribe(isOpen => {this.isOpen = isOpen});
+    this.urlBeatIdService.currentBeat$.subscribe(b => this.currentBeat = b);
   }
 
   getFilesString(files: FilesCategory[]): string {
@@ -69,19 +74,7 @@ export class LicenseSelectionComponent {
     this.licenseInfoPanelService.toogle();
   };
 
-  async onClick() {
-  try {
-    const res = await fetch("http://localhost:3000/stripe/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json" // toujours mettre ce header
-      },
-      body: JSON.stringify({ beatName: 'Beat', license: this.selectedLicense.name, price: this.selectedLicense.price * 100 })
-    });
-    const data = await res.json();
-    window.location.href = data.url; // redirection vers Stripe Checkout
-  } catch (err) {
-    console.error("Erreur lors de la création de la session:", err);
+  async directPayment() {
+    this.api.directPayment(this.currentBeat!.name, this.selectedLicense.name, this.selectedLicense.price * 100);
   }
-}
 }

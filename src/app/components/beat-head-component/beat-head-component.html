@@ -4,9 +4,9 @@
         <app-beat-box-component [beat]="currentBeat"></app-beat-box-component>
         <div class="beat-presentation">
             <div class="beat-title">
-                <h1>{{ currentBeat.name }}</h1>
+                <h1>{{ currentBeat!.name }}</h1>
                 <hr class="vertical-separator">
-                <h2>{{ currentBeat.description }}</h2>
+                <h2>{{ currentBeat!.description }}</h2>
             </div>
             <div class="beat-action">
                 <app-tooltip-component text="Like">
@@ -28,15 +28,15 @@
                     <span>Published</span>
                 </div>
                 <div class="beat-info-data">
-                    <span>{{ currentBeat.bpm }}</span>
-                    <span>{{ currentBeat.key }}</span>
+                    <span>{{ currentBeat!.bpm }}</span>
+                    <span>{{ currentBeat!.key }}</span>
                     <span>1320</span>
                     <span>Rap</span>
-                    <span>{{ currentBeat.date }}</span>
+                    <span>{{ currentBeat!.date }}</span>
                 </div>
             </div>
         </div>
-        @if (audioPlayerService.currentAudioId === currentBeat.id) {
+        @if (audioPlayerService.currentAudioId === currentBeat!.id) {
         <app-audio-progress-bar-component></app-audio-progress-bar-component>
         }
     </div>

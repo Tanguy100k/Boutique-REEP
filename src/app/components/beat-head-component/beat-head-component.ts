@@ -4,6 +4,7 @@ import { AudioPlayerService } from '../../services/audio-player-service';
 import { AudioProgressBarComponent } from '../audio-progress-bar-component/audio-progress-bar-component';
 import { BeatInterface } from '../../interfaces/beat-interface';
 import { BeatBoxComponent } from "../beat-box-component/beat-box-component";
+import { UrlBeatIdService } from '../../services/url-beat-id-service';
 
 @Component({
   selector: 'app-beat-head-component',
@@ -17,19 +18,12 @@ import { BeatBoxComponent } from "../beat-box-component/beat-box-component";
 })
 export class BeatHeadComponent {
 
-  currentBeat: BeatInterface = {
-    id: '1',
-    name: 'Fast Car',
-    description: 'Trap x RnB x Drill',
-    imgUrl: 'https://i.pinimg.com/1200x/ad/93/d0/ad93d06036af4585897261d753846046.jpg',
-    audioUrl: 'Sample.wav',
-    key: 'Fm',
-    bpm: '140',
-    date: 'Sep 2, 2025'
-  };
+  currentBeat: BeatInterface | null = null;
 
   audioSrc = 'Sample.wav'
   audioSrc2 = 'Sample2.wav'
 
-  constructor(public audioPlayerService: AudioPlayerService) {}
+  constructor(public audioPlayerService: AudioPlayerService, private urlBeatIdService: UrlBeatIdService) {
+    this.urlBeatIdService.currentBeat$.subscribe(b => this.currentBeat = b)
+  }
 }

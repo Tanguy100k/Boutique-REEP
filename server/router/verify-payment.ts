@@ -16,9 +16,9 @@ export default function verifyPayment(stripe: Stripe) {
                 return res.json({ paid: false });
             }
         } catch (err) {
+            console.error('Err: Aucune session trouvée');
             return res.json({ paid: false });
         }
     });
-
     return router;
 }

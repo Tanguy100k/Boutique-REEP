@@ -1,73 +1,15 @@
 <div class="beat-recommendations-box">
-    <div class="beat-recommendation-box">
+    @for (beat of beats; track $index) {
+        <div class="beat-recommendation-box">
         <div class="beat-cover">
-            <app-beat-box-component [beat]="beat1"></app-beat-box-component>
+            <app-beat-box-component [beat]="beat"></app-beat-box-component>
         </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div>    
-    <div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat2"></app-beat-box-component>
-        </div>
-        <button class="price">
+        <button class="price" (click)="redirectUrlService.redirectToBeat(beat)">
             <div class="material-symbols-outlined">add_shopping_cart</div>
             <div>29.99€</div>
         </button>
     </div>
-    <div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat1"></app-beat-box-component>
-        </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div>    
-    <div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat2"></app-beat-box-component>
-        </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div><div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat1"></app-beat-box-component>
-        </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div>    
-    <div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat2"></app-beat-box-component>
-        </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div><div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat1"></app-beat-box-component>
-        </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div>    
-    <div class="beat-recommendation-box">
-        <div class="beat-cover">
-            <app-beat-box-component [beat]="beat2"></app-beat-box-component>
-        </div>
-        <button class="price">
-            <div class="material-symbols-outlined">add_shopping_cart</div>
-            <div>29.99€</div>
-        </button>
-    </div>
+    }
+    
 </div>
  

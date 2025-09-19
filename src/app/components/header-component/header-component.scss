@@ -20,6 +20,10 @@ app-nav-bar-component {
 
 h1 {
     margin: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 

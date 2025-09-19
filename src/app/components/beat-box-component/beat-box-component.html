@@ -1,6 +1,6 @@
 <div class="beat-cover">
-        <button class="material-symbols-outlined" (click)="audioPlayerService.toggleSound(beat.audioUrl, beat.id)">
-            {{ audioPlayerService.currentAudioId === beat.id && audioPlayerService._isPlaying.value ? 'pause_circle' : 'play_circle'}}
+        <button class="material-symbols-outlined" (click)="audioPlayerService.toggleSound(beat!.audioUrl, beat!.id)">
+            {{ audioPlayerService.currentAudioId === beat!.id && audioPlayerService._isPlaying.value ? 'pause_circle' : 'play_circle'}}
         </button>
-    <img [src]='beat.imgUrl' alt="Exemple">
+    <img [src]='beat!.imgUrl' alt="Exemple">
 </div>

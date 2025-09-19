@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BeatHeadComponent } from '../beat-head-component/beat-head-component';
 import { LicenseSelectionComponent } from "../license-selection-component/license-selection-component";
 import { BeatRecommendationsComponent } from '../beat-recommendations-component/beat-recommendations-component';
@@ -15,4 +15,5 @@ import { ReepContactBoxComponent } from '../reep-contact-box-component/reep-cont
   templateUrl: './body-component.html',
   styleUrl: './body-component.scss'
 })
-export class BodyComponent {}
+export class BodyComponent {
+}

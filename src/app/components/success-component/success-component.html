@@ -1,4 +1,6 @@
 <div class="download-box">
     <p>Purchase Sucessfully, Thank You</p>
-    <a href="/home">Download Link</a>
+    @if (downloadLinkService.downloadUrl$ | async; as url) {
+  <a [href]="url">Download Link</a>
+}
 </div>

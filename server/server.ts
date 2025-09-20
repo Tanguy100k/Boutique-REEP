@@ -4,10 +4,11 @@ import Stripe from "stripe";
 import createCheckoutSession from './router/create-checkout-session.ts'
 import verifyPayment from './router/verify-payment.ts'
 import { getDownloadEntry, generateDownloadLink } from './router/generate-download-link.ts';
+import 'dotenv/config';
 
 const app = express();
 const port = 3000;
-const stripe = new Stripe('***REMOVED***');
+const stripe = new Stripe(process.env.STRIPE_KEY!);
 
 app.use(cors({ origin: "http://localhost:4200" }));
 app.use(express.json());

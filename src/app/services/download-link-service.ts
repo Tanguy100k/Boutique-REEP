@@ -13,7 +13,7 @@ export class DownloadLinkService {
 
   async generateLink(sessionId: string) {
     const res: any = await firstValueFrom(
-      this.http.get(`http://localhost:3000/download/${sessionId}`)
+      this.http.get(`http://192.168.1.8:3000/download/${sessionId}`)
     );
     this._downloadUrl.next(res.downloadUrl);
   }

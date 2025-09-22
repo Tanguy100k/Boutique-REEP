@@ -5,7 +5,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private baseUrl = 'http://localhost:3000/api';
+  private baseUrl = 'http://192.168.1.8:3000/api';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +15,7 @@ export class ApiService {
 
   async directPayment(beatName: string, license: string, price: number) {
   try {
-    const res = await fetch("http://localhost:3000/stripe/create-checkout-session", {
+    const res = await fetch("http://192.168.1.8:3000/stripe/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json" // toujours mettre ce header
@@ -31,7 +31,7 @@ export class ApiService {
 
 async verifyPayment(sessionId: string | null): Promise<boolean> {
   const res: any = await firstValueFrom(
-    this.http.get(`http://localhost:3000/stripe/verify-payment/${sessionId}`)
+    this.http.get(`http://192.168.1.8:3000/stripe/verify-payment/${sessionId}`)
   );
   return res.paid;
 }
